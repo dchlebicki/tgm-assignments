@@ -1,0 +1,178 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>queuesync module &#8212; Threading Queue Synchronization 1.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="top" title="Threading Queue Synchronization 1.0 documentation" href="index.html" />
+    <link rel="prev" title="Welcome to Threading Queue Synchronization’s documentation!" href="index.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body role="document">
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="module-queuesync">
+<span id="queuesync-module"></span><h1>queuesync module<a class="headerlink" href="#module-queuesync" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="queuesync.Consumer">
+<em class="property">class </em><code class="descclassname">queuesync.</code><code class="descname">Consumer</code><span class="sig-paren">(</span><em>queue</em>, <em>file</em><span class="sig-paren">)</span><a class="headerlink" href="#queuesync.Consumer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">threading.Thread</span></code></p>
+<p>Reads numbers out of the queue, prints them in the console and writes them in a simple text file.</p>
+<dl class="method">
+<dt id="queuesync.Consumer.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>queue</em>, <em>file</em><span class="sig-paren">)</span><a class="headerlink" href="#queuesync.Consumer.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initializes the super class and some variables</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>queue</strong> &#8211; the queue</li>
+<li><strong>file</strong> &#8211; the writable text file</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="queuesync.Consumer.run">
+<code class="descname">run</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#queuesync.Consumer.run" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads numbers out of a queue, prints them in the console and writes then in a simple text file.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">None</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="queuesync.Producer">
+<em class="property">class </em><code class="descclassname">queuesync.</code><code class="descname">Producer</code><span class="sig-paren">(</span><em>queue</em>, <em>start_num</em>, <em>end_num</em><span class="sig-paren">)</span><a class="headerlink" href="#queuesync.Producer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">threading.Thread</span></code></p>
+<p>Producer searches for prime numbers in a certain range and writes them into a queue.</p>
+<dl class="method">
+<dt id="queuesync.Producer.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>queue</em>, <em>start_num</em>, <em>end_num</em><span class="sig-paren">)</span><a class="headerlink" href="#queuesync.Producer.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initializes the super class and some variables</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>queue</strong> &#8211; the queue</li>
+<li><strong>start_num</strong> &#8211; the start number of the number range</li>
+<li><strong>end_num</strong> &#8211; the end number of the number range</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="queuesync.Producer.run">
+<code class="descname">run</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#queuesync.Producer.run" title="Permalink to this definition">¶</a></dt>
+<dd><p>Searches for prime numbers and writes them into a queue</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">None</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper"><div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="index.html" title="previous chapter">Welcome to Threading Queue Synchronization&#8217;s documentation!</a></li>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/queuesync.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2016, Dominik Chlebicki.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.4.8</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.9</a>
+      
+      |
+      <a href="_sources/queuesync.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+{% block body %}
+<div class=row>
+    <div class="col-md-12">
+        <h1>To do list</h1>
+        <ul>
+            {% for entry in entries %}
+            <li>{{ entry.title }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+</div>
+<div class=row>
+    <div class="col-md-12">
+        <h3>Add new items:</h3>
+        <form action="{{ url_for('add_entry') }}" method=post>
+            New item:
+            <input type=text name=title />
+            <input type=submit value=add />
+        </form>
+    </div>
+</div>
+{% endblock body %}
